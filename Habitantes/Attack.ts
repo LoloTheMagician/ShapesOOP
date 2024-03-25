@@ -1,25 +1,45 @@
 import { Habitante } from "./Habitantes.ts";
 
 interface IAttack {
-    damage: number
     toAttack(enemy: Habitante): void
 }
 
-class Attack implements IAttack {
-    damage: number = 10;
+abstract class Attack implements IAttack {
+    private damage: number;
+
+    constructor(damage: number) {
+        this.damage = damage
+    }
 
     toAttack(enemy: Habitante): void {
         enemy.setLife = enemy.getLife - this.damage
     }
 
+    public get getDamage() {
+        return this.damage
+    }
+
+    public set setDamage(newDamage: number) {
+        this.damage = newDamage
+    }
+}
+
+class BaseAttack extends Attack {
+    constructor() {
+        super(10)
+    }
 }
 
 class BiteAttack extends Attack {
-    damage: number = 25;
+    constructor() {
+        super(25)
+    }
 }
 
 class ClawAttack extends Attack {
-    damage: number = 15;
+    constructor() {
+        super(15)
+    }
 }
 
 
@@ -29,6 +49,7 @@ export type {
 
 export {
     Attack,
+    BaseAttack,
     BiteAttack,
-    ClawAttack
+    ClawAttack,
 }
