@@ -5,8 +5,8 @@ import { Sex } from './types.ts';
 
 class Dog extends Animal {
 
-    constructor(name: string, sex: Sex, amountOfPaws: number) {
-        super(name, sex, amountOfPaws, new CanineSay(), new Attack())
+    constructor(name: string, sex: Sex, amountOfPaws: number, attackBehaviour: Attack = new Attack) {
+        super(name, sex, amountOfPaws, new CanineSay(), attackBehaviour)
     }
 
 }
