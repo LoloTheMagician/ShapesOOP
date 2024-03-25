@@ -14,6 +14,13 @@ class Attack implements IAttack {
 
 }
 
+class BiteAttack extends Attack {
+    damage: number = 25;
+}
+
+class ClawAttack extends Attack {
+    damage: number = 15;
+}
 
 
 export type {
@@ -21,5 +28,7 @@ export type {
 }
 
 export {
-    Attack
+    Attack,
+    BiteAttack,
+    ClawAttack
 }
